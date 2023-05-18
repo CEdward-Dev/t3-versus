@@ -23,18 +23,24 @@ const Home: NextPage = () => {
         </header>
 
         <div className="flex h-[80%] w-full flex-row items-center justify-between gap-12">
-          <div className="flex h-full w-1/4 flex-col items-center bg-gradient-to-l from-slate-700 to-slate-900 opacity-40 rounded-xl">
+          <div className="flex h-full w-1/4 flex-col items-center rounded-xl bg-gradient-to-l from-violet-800 to-violet-950 opacity-60">
             Home Team
           </div>
-          <div className="flex w-1/2 flex-row justify-center self-start">
-            <h1 className="text-[15rem] text-slate-200">0</h1>
+          <div className="flex w-1/2 flex-row justify-center self-start text-slate-200">
+            <div className="flex flex-col items-center">
+              <h4>Home</h4>
+              <h1 className="text-[15rem] ">0</h1>
+            </div>
             <h2 className="text-[14rem] text-slate-200"> - </h2>
-            <h1 className="text-[15rem] text-slate-200">0</h1>
+            <div className="flex flex-col items-center">
+              <h4>Away</h4>
+              <h1 className="text-[15rem] text-slate-200">0</h1>
+            </div>
           </div>
           {/* <p className="text-2xl text-white">
             {hello.data ? hello.data.greeting : "Loading tRPC query..."}
           </p> */}
-          <div className="flex h-full w-1/4 flex-col items-center justify-self-end bg-gradient-to-l from-slate-900 to-slate-700 opacity-40 rounded-xl">
+          <div className="flex h-full w-1/4 flex-col items-center justify-self-end rounded-xl bg-gradient-to-l from-violet-950 to-violet-800 opacity-60">
             Away Team
           </div>
         </div>
@@ -44,7 +50,7 @@ const Home: NextPage = () => {
           <div className="flex w-full flex-row justify-around">
             <div className="flex w-1/2 flex-col items-center">
               <h2>Home Team</h2>
-              <button bg-amber-700 w-16>
+              <button className="bg-amber-700 w-16">
                 Score
               </button>
             </div>
