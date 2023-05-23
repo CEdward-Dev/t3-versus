@@ -4,15 +4,18 @@ import Link from "next/link";
 import { useState } from "react";
 
 import { api } from "~/utils/api";
+import Menu from "./components/menu";
 
 const Home: NextPage = () => {
-  const [homeScore, setHomeScore] = useState(0)
+  const [homeScore, setHomeScore] = useState(0);
   const [awayScore, setAwayScore] = useState(0);
+  const [menuActive, setMenuActive] = useState(false);
 
-  const hello = api.example.hello.useQuery({ text: "from tRPC" });
+  // const hello = api.example.hello.useQuery({ text: "from tRPC" });
 
-  //let homeScore = 0;
-  //let awayScore = 0;
+  const openMenu = () => {
+    return setMenuActive(true)
+  }
 
   const incrementHomeScore = () => {
     return setHomeScore(homeScore + 1)
@@ -46,11 +49,12 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="h-screen bg-gradient-to-br text-slate-200 from-[#2e026d] to-[#440658]">
+        <Menu menuActive={menuActive} />
         <header className="flex h-[7%] flex-row items-center justify-between">
           <h1 className="p-5 text-xl font-extrabold tracking-tight text-white sm:text-5xl">
             <span className="text-[hsl(220,100%,70%)]">Versus</span> Scoreboard
           </h1>
-          <div className="p-5 text-5xl text-slate-200">=</div>
+          <button className="p-5 text-5xl text-slate-200" onClick={openMenu}>=</button>
         </header>
 
         <div className="flex h-[80%] w-full flex-row items-center justify-between gap-12">
