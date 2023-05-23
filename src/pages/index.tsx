@@ -22,6 +22,22 @@ const Home: NextPage = () => {
     return setAwayScore(awayScore + 1);
   };
 
+  const decrementHomeScore = () => {
+    return setHomeScore(homeScore - 1);
+  };
+
+  const decrementAwayScore = () => {
+    return setAwayScore(awayScore - 1);
+  };
+
+  const resetHomeScore = () => {
+    return setHomeScore(0);
+  };
+
+  const resetAwayScore = () => {
+    return setAwayScore(0);
+  };
+
   return (
     <>
       <Head>
@@ -69,11 +85,19 @@ const Home: NextPage = () => {
           <div className="flex w-full flex-row justify-around">
             <div className="flex w-1/2 flex-col items-center">
               <h2>Home Team</h2>
-              <button className="w-16 bg-amber-700" onClick={incrementHomeScore}>Score</button>
+              <div className="flex flex-row p-1">
+                <button className="w-16 m-1 bg-lime-700" onClick={incrementHomeScore}>+1</button>
+                <button className="w-16 m-1 bg-rose-700" onClick={decrementHomeScore}>-1</button>
+                <button className="w-16 m-1 bg-amber-700" onClick={resetHomeScore}>Reset</button>
+              </div>
             </div>
             <div className="flex w-1/2 flex-col items-center">
               <h2>Away Team</h2>
-              <button className="w-16 bg-amber-700" onClick={incrementAwayScore}>Score</button>
+              <div>
+                <button className="w-16 m-1 bg-lime-700" onClick={incrementAwayScore}>+1</button>
+                <button className="w-16 m-1 bg-rose-700" onClick={decrementAwayScore}>-1</button>
+                <button className="w-16 m-1 bg-amber-700" onClick={resetAwayScore}>Reset</button>
+              </div>
             </div>
           </div>
         </div>

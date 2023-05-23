@@ -14,26 +14,50 @@ model User {
   id                 String       @id @default(cuid())
   createdAt          DateTime     @default(now())
   updatedAt          DateTime     @updatedAt
+  headline           String
+  secondaryMessage   String
+  tertiaryMessage    String
   scoreboardSettings ScoreboardSettings[]
   scoreHistory       ScoreHistory[]
+  competitors        Competitors[]
 }
 
 model ScoreboardSettings {
-  id        String   @id @default(cuid())
-  user      User     @relation(fields: [userId], references: [id])
-  userId    String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id                  String    @id @default(cuid())
+  user                User      @relation(fields: [userId], references: [id])
+  userId              String
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+  homeAwayDesignation Boolean
 }
 
 model ScoreHistory {
-  id        String   @id @default(cuid())
-  userId    String
-  user      User?    @relation(fields: [userId], references: [id])
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  homeScore Int      
-  awayScore Int
-  homeName  String
-  awayName  String
+  id          String   @id @default(cuid())
+  userId      String
+  user        User?    @relation(fields: [userId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  homeScore   Int      
+  awayScore   Int
+  homeTeamId  String
+  awayTeamId  String
+}
+
+model Competitors {
+  id                        String      @id @default(cuid())
+  user                      User?       @relation(fields: [userId], references: [id])
+  userId                    String
+  createdAt                 DateTime    @default(now())
+  updatedAt                 DateTime    @updatedAt
+  isTeam                    Boolean
+  name                      String
+  abbreviation              String
+  representingOrganization  String
+  primaryColor              String
+  secondaryColor            String
+  tertiaryColor             String
+  logo                      Bytes
+  logoThumbnail             Bytes
+  secondaryLogo             Bytes
+  secondaryLogoThumbnail    Bytes
 }
