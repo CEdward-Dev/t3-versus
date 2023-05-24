@@ -49,7 +49,14 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="h-screen bg-gradient-to-br text-slate-200 from-[#2e026d] to-[#440658]">
-        <Menu menuActive={menuActive} />
+        { 
+          (menuActive) ?
+            <Menu menuActive={menuActive} setMenuActive={setMenuActive} /> :
+            ''
+        }
+        
+        
+        
         <header className="flex h-[7%] flex-row items-center justify-between">
           <h1 className="p-5 text-xl font-extrabold tracking-tight text-white sm:text-5xl">
             <span className="text-[hsl(220,100%,70%)]">Versus</span> Scoreboard
